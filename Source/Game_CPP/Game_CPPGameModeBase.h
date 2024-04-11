@@ -13,5 +13,8 @@ UCLASS()
 class GAME_CPP_API AGame_CPPGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+public:
+	AGame_CPPGameModeBase();
 	
 };

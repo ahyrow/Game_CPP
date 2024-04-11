@@ -5,8 +5,17 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "Input/Game_IA_PlayerMove.h"
+#include "Input/Game_IMC.h"
 
 
+AGame_PlayerController::AGame_PlayerController()
+{
+	
+	/*GameContext= NewObject<UGame_IMC>();
+	PlayerMoveAction =NewObject<UGame_IA_PlayerMove>();*/
+	
+}
 
 void AGame_PlayerController::BeginPlay()
 {

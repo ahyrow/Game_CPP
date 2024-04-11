@@ -18,15 +18,25 @@ class GAME_CPP_API AGame_Character : public ACharacter
 	GENERATED_BODY()
 
 public:
-	
-	AGame_Character();
 
-	virtual void BeginPlay() override;
+AGame_Character();
 
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+virtual void Tick(float DeltaSeconds) override;	
 
 public:
-	
+
+    UPROPERTY(EditAnywhere,Category="Component")
+	TObjectPtr<USpringArmComponent> SpringArmComponent;
+
+	UPROPERTY(EditAnywhere,Category="Component")
+	TObjectPtr<UCameraComponent> CameraComponent;
+
+	UPROPERTY(EditAnywhere,Category="Static Mesh")
+	TObjectPtr<UStaticMeshComponent> WirteBoxPlayer;
+
+public:
+
+	void UpdatePlayerRotationToMouse();
 };
 
 

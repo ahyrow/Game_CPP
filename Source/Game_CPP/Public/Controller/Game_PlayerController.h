@@ -7,6 +7,8 @@
 #include "Game_PlayerController.generated.h"
 
 
+class UGame_IA_PlayerMove;
+class UGame_IMC;
 class UInputAction;
 class UInputMappingContext;
 struct FInputActionValue;
@@ -18,17 +20,21 @@ class GAME_CPP_API AGame_PlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
+public:
 
+	AGame_PlayerController();
 
 public:
 
-    UPROPERTY(EditAnywhere,Category="Input")
-    TObjectPtr<UInputMappingContext> GameContext;
+
+	UPROPERTY(EditAnywhere,Category="Input")
+	TObjectPtr<UInputMappingContext> GameContext;
 
 	UPROPERTY(EditAnywhere,Category="Input")
 	TObjectPtr<UInputAction> PlayerMoveAction;
 
-	
+
+
 	
 public:
     
