@@ -23,15 +23,15 @@ void AGame_PlayerController::BeginPlay()
 
 	check(GameContext);
 	UEnhancedInputLocalPlayerSubsystem* LocalPlayerSubsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-   // check(LocalPlayerSubsystem)
+	// check(LocalPlayerSubsystem)
 	if(LocalPlayerSubsystem)
 	{
 		LocalPlayerSubsystem->AddMappingContext(GameContext,0);	
 	};
 
 	bShowMouseCursor = false;
-	/*FInputModeGameOnly InputData;
-	SetInputMode(InputData);*/
+	FInputModeGameOnly InputData;
+	SetInputMode(InputData);
 }
 
 void AGame_PlayerController::SetupInputComponent()

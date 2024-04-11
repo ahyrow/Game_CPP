@@ -12,13 +12,19 @@ AGame_Character::AGame_Character()
 {
 	SpringArmComponent=CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	CameraComponent=CreateDefaultSubobject<UCameraComponent>(TEXT("PlayerCamera"));
+	WirteBoxPlayer=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 
 	SpringArmComponent->SetupAttachment(RootComponent);
 	CameraComponent->SetupAttachment(SpringArmComponent);
 
+	SpringArmComponent->bInheritYaw=false;
+	SpringArmComponent->bInheritPitch=false;
+	SpringArmComponent->bInheritRoll=false;
+
 	SpringArmComponent->TargetArmLength = 800.f;
 	SpringArmComponent->SetRelativeRotation(FRotator(-60,0,0));
 	SpringArmComponent->bDoCollisionTest = false;
+
 }
 
 void AGame_Character::Tick(float DeltaSeconds)
@@ -45,5 +51,8 @@ void AGame_Character::UpdatePlayerRotationToMouse()
 
 	FRotator ActorRotation =  UKismetMathLibrary::FindLookAtRotation(StartLocation, EndLocation);
     SetActorRotation(ActorRotation);
+	
+	WirteBoxPlayer->SetWorldLocation(EndLocation);
+	
 }
 
