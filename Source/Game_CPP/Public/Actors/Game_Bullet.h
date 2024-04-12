@@ -18,14 +18,14 @@ public:
 	
 	AGame_Bullet();
 
-public:
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UStaticMeshComponent> Bullet;
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<USphereComponent> Sphere;
-
+	
+	UPROPERTY(EditAnywhere)
 	TObjectPtr<UProjectileMovementComponent> PMC;
 
 

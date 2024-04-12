@@ -4,42 +4,65 @@
 #include "Character/Game_Enemy.h"
 
 #include "AIController.h"
-#include "AIHelpers.h"
 #include "Character/Game_Character.h"
 #include "Components/SphereComponent.h"
-#include "Components/WidgetComponent.h"
-#include "Kismet/GameplayStatics.h"
-#include "Tasks/AITask_MoveTo.h"
+#include "Controller/Game_AIController.h"
+#include "GameFramework/CharacterMovementComponent.h"
+
+
 
 // Sets default values
 AGame_Enemy::AGame_Enemy()
 {
 	EnemyStaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EnemyStaticMesh"));
-	Sphere= CreateDefaultSubobject<USphereComponent>(TEXT("EnemyStaticMesh"));
-	EnemyLifeWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("EnemyStaticMesh"));
+	Sphere= CreateDefaultSubobject<USphereComponent>(TEXT("SpherComp"));
+	EnemyStaticMesh->SetupAttachment(RootComponent);
+	//EnemyLifeWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("EnemyStaticMesh"));
 
 	
 	Sphere->SetupAttachment(EnemyStaticMesh);
+
+	GetCharacterMovement()->MaxWalkSpeed=EnemyMoveSpeed;
 }
 
 // Called when the game starts or when spawned
 void AGame_Enemy::BeginPlay()
 {
-	Super::BeginPlay();
+	 Super::BeginPlay();
+
+     Sphere->OnComponentBeginOverlap.AddDynamic(this,&AGame_Enemy::OnBeginOverlap);
+}
+
+void AGame_Enemy::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
 
 	
-	AAIController* AIController= Cast<AAIController>(GetController());
-	if(AIController)
-	{  
-      
-       	
-		AActor* Player=UGameplayStatics::GetPlayerCharacter(GetWorld(),0);
-
-		//FVector TargetLocation = Player->GetActorLocation();
-		float Radius =100.f;
-		bool bStopOnOverlap=true;
-		AIController->MoveToActor(Player,Radius,bStopOnOverlap);
-	}
 }
+
+void AGame_Enemy::OnBeginOverlap(UPrimitiveComponent* OnComponentBeginOverlap, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,const FHitResult& SweepResult)
+{
+
+
+     UE_LOG(LogTemp,Log,TEXT("%s"),*OtherActor->GetName());
+	
+	AGame_Character* PlayrCharacter = Cast<AGame_Character>(OtherActor);
+	if(PlayrCharacter)
+	{
+		if( AGame_AIController* AIController= Cast<AGame_AIController>(GetController()))
+		{
+			AIController->WaitTime(5.f);
+		}
+
+		PlayrCharacter->HealthLoss(DamageToPlayer);
+		
+	}
+	
+	
+}
+
+
+
 
 

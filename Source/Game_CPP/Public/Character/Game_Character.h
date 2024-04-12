@@ -7,7 +7,7 @@
 #include "Game_Character.generated.h"
 
 
-
+class AGame_Bullet;
 class UCameraComponent;
 class USpringArmComponent;
 
@@ -19,9 +19,10 @@ class GAME_CPP_API AGame_Character : public ACharacter
 
 public:
 
-AGame_Character();
+    AGame_Character();
 
-virtual void Tick(float DeltaSeconds) override;	
+    virtual void Tick(float DeltaSeconds) override;
+	virtual void BeginPlay() override;
 
 public:
 
@@ -37,6 +38,29 @@ public:
 public:
 
 	void UpdatePlayerRotationToMouse();
+
+	void HealthLoss(float Damage);
+
+
+public:
+  /*PlayerHealth*/
+	float PlayerCurrentHealth;
+	float PlayerMaxHealth;
+
+	void PlayerDie();
+
+
+	/*kill*/
+	UPROPERTY(EditAnywhere,Category="SkillAsset")
+	TSubclassOf<AGame_Bullet> BulletClass;
+	
+	FTimerHandle TimerHandle_SpawnSkill;
+
+	void BaseSKill();
+	
+	float SpawnTime = 1 ;
+	
+	
 };
 
 
