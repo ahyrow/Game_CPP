@@ -3,6 +3,7 @@
 #include "Character/Game_Character.h"
 
 #include "Actors/Game_Bullet.h"
+#include "Actors/Game_EnemySpawnPoint.h"
 #include "Camera/CameraComponent.h"
 #include "Controller/Game_PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -44,6 +45,15 @@ void AGame_Character::BeginPlay()
 	Super::BeginPlay();
 
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle_SpawnSkill, this, &AGame_Character::BaseSKill,  SpawnTime, true);
+
+	/*UWorld* World = GetWorld();
+	if (World)
+	{
+		
+
+		AGame_EnemySpawnPoint* EnemySpawnPoint = World->SpawnActor<AGame_EnemySpawnPoint>(AGame_EnemySpawnPoint::StaticClass(), GetActorLocation(), FRotator::ZeroRotator);
+		
+	};*/
 }
 
 void AGame_Character::UpdatePlayerRotationToMouse()

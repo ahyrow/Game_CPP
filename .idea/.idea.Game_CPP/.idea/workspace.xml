@@ -8,18 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87faca31-ec27-44da-8fa7-dd36436ec4f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game_CPP/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game_CPP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game_CPP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_Ememy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_Ememy.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_Player.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/Level_Scene.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Level_Scene.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game_CPP.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Game_CPP.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Game_CPP.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Game_CPP.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Private/Actors/Game_Bullet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Private/Actors/Game_Bullet.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Private/Character/Game_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Private/Character/Game_Character.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Private/Character/Game_Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Private/Character/Game_Enemy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Public/Actors/Game_Bullet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Public/Actors/Game_Bullet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Public/Character/Game_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Public/Character/Game_Character.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Public/Character/Game_Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Public/Character/Game_Enemy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Private/Controller/Game_AIController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Private/Controller/Game_AIController.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,79 +62,11 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2eymCTWeunDiViuOuj0KQWTkndV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -151,6 +77,7 @@
     "C++ Project.Game_CPP.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ezargs.lastUsed": "",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -162,9 +89,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\64461\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\64461\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\64461\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\Administrator\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Administrator\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Administrator\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -240,6 +167,8 @@
       <option name="presentableId" value="Default" />
       <updated>1712885065418</updated>
       <workItem from="1712885066694" duration="21735000" />
+      <workItem from="1712942150589" duration="151000" />
+      <workItem from="1713100072167" duration="6225000" />
     </task>
     <servers />
   </component>
@@ -254,6 +183,7 @@
       <configuration name="CppProject">
         <watch expression="Rotator.Pitch" language="C++" />
         <watch expression="HitResult.ElementIndex" language="C++" />
+        <watch expression="this-&gt;bAsyncPhysicsTickEnabled" />
       </configuration>
     </watches-manager>
   </component>

@@ -29,7 +29,6 @@ void AGame_AIController::AIMovePlayer()
 		if(APawn* MyPawn=UGameplayStatics::GetPlayerPawn(GetWorld(),0))
 		
 		{
-	 	
 			MoveToActor(MyPawn,AcceptanceRadius);
 		};
 
