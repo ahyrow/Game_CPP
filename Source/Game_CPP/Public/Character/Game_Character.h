@@ -10,7 +10,7 @@
 class AGame_Bullet;
 class UCameraComponent;
 class USpringArmComponent;
-
+class UStaticMesh;
 
 UCLASS()
 class GAME_CPP_API AGame_Character : public ACharacter
@@ -51,8 +51,10 @@ public:
 
 
 	/*kill*/
-	UPROPERTY(EditAnywhere,Category="SkillAsset")
-	TSubclassOf<AGame_Bullet> BulletClass;
+	/*UPROPERTY(EditAnywhere,Category="SkillAsset")
+	TSubclassOf<AGame_Bullet> BulletClass;*/
+
+  
 	
 	FTimerHandle TimerHandle_SpawnSkill;
 

@@ -6,21 +6,35 @@
 #include "Character/Game_Enemy.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Math/TransformCalculus3D.h"
 
 // Sets default values
 AGame_Bullet::AGame_Bullet()
 {
 
-    InitialLifeSpan = 5.f;
+  
 	
 	Bullet= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Bullet"));
 	Sphere= CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	PMC= CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("PMC"));
-
+	
+	
+	
+	
 	Bullet->SetupAttachment(RootComponent);
 	Sphere->SetupAttachment(Bullet);
-	Sphere->SetSphereRadius(210.f);
-	
+	Bullet->SetRelativeScale3D(FVector(0.5,0.5,0.5));
+	Sphere->SetSphereRadius(100.f);
+
+	ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Script/Engine.StaticMesh'/Game/Sphere_9A2EFB8B.Sphere_9A2EFB8B'"));
+
+	if(MeshAsset.Succeeded())
+	{
+		Bullet->SetStaticMesh(MeshAsset.Object);
+	}
+	/*
+	 * 碰撞
+	 */
 	Sphere->BodyInstance.SetCollisionProfileName(TEXT("Custom"));
 	Sphere->BodyInstance.SetObjectType(ECC_WorldDynamic);
 	Sphere->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
@@ -33,7 +47,7 @@ AGame_Bullet::AGame_Bullet()
 	//设置无重力
 	PMC->ProjectileGravityScale = 0.f;
 	
-	
+	InitialLifeSpan = 5.f;
 }
 
 void AGame_Bullet::BeginPlay()

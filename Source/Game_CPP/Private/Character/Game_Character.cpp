@@ -111,15 +111,11 @@ void AGame_Character::PlayerDie()
 void AGame_Character::BaseSKill()
 {
 
-	if(BulletClass!=nullptr)
-	{
-
-		FVector SpawnPoint = GetActorLocation()+FVector(30,0,0);
+	    FVector SpawnPoint = GetActorLocation()+FVector(30,0,0);
         FRotator Rotator = GetActorRotation();
 
-		GetWorld()->SpawnActor<AActor>(BulletClass,SpawnPoint,Rotator);
-		
-	}
+	    AGame_Bullet* Game_Bullet = GetWorld()->SpawnActor<AGame_Bullet>(AGame_Bullet::StaticClass(),SpawnPoint,Rotator);
+	
 }
 
 void AGame_Character::Timekeeping()

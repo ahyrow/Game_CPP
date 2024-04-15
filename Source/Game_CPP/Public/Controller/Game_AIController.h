@@ -23,14 +23,18 @@ public:
     virtual void BeginPlay() override;
 public:
 
+	//怪物向玩家移动
 	void AIMovePlayer();
 
+	//等待时间
 	void WaitTime(float Seconds);
 
+	//等待时间结束回调
 	void OnWaitFinished();
 
 public:
-
+    //是否移动
 	bool bIsMove=true;
+	//移动碰撞半径
 	float AcceptanceRadius;
 };

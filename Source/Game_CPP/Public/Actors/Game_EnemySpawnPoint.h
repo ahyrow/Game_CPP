@@ -31,7 +31,9 @@ public:
 
 	
     
-
+   /*
+    * AI生成
+    */
 	UFUNCTION(BlueprintCallable)
 	void SpawnEnemy();
 	void SpawnAIPC(FVector NewSpawnPoint);

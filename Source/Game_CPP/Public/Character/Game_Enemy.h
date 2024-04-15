@@ -11,6 +11,7 @@ class UStaticMeshComponent;
 class USphereComponent;
 class AGame_AIController;
 
+//敌人类型
 enum class E_EnemyType:int8
 {
     BigEnemy,
@@ -19,6 +20,7 @@ enum class E_EnemyType:int8
 	
 };
 
+//敌人属性结构
 struct FEnemyInfo
 {
 	float CurrentHealth;
@@ -83,5 +85,6 @@ public:
     //设置敌人类型
 	void SetEnemyType(int32 GameTime);
 
+	//生命值更新
 	void UpDateEnemyHealth(float Damage);
 };

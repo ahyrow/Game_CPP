@@ -140,8 +140,11 @@ void AGame_Enemy::UpDateEnemyHealth(float Damage)
 	}
 	else
 	{
+
+		//死亡后
 		Destroy();
 		UE_LOG(LogTemp,Log,TEXT("Enemy已经死亡"))
+		
 		
 	}
   
