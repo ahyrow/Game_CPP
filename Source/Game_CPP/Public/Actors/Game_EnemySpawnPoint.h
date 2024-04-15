@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Controller/Game_AIController.h"
 #include "GameFramework/Actor.h"
 #include "Game_EnemySpawnPoint.generated.h"
 
+class AGame_AIController;
 class AGame_Enemy;
 
 UCLASS()
@@ -27,12 +29,12 @@ public:
 
 public:
 
-   
 	
-	FVector SpawnPoint;
+    
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnEnemy();
+	void SpawnAIPC(FVector NewSpawnPoint);
 
-	//void TimerCallBack();
+	
 };

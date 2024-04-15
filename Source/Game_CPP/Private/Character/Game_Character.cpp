@@ -45,15 +45,9 @@ void AGame_Character::BeginPlay()
 	Super::BeginPlay();
 
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle_SpawnSkill, this, &AGame_Character::BaseSKill,  SpawnTime, true);
-
-	/*UWorld* World = GetWorld();
-	if (World)
-	{
-		
-
-		AGame_EnemySpawnPoint* EnemySpawnPoint = World->SpawnActor<AGame_EnemySpawnPoint>(AGame_EnemySpawnPoint::StaticClass(), GetActorLocation(), FRotator::ZeroRotator);
-		
-	};*/
+	GetWorld()->GetTimerManager().SetTimer(GameTimeTimerHanld, this, &AGame_Character::Timekeeping,  1, true);
+	AGame_EnemySpawnPoint* EnemySpawnPoint =GetWorld()->SpawnActor<AGame_EnemySpawnPoint>(AGame_EnemySpawnPoint::StaticClass(), GetActorLocation(), FRotator::ZeroRotator);
+	
 }
 
 void AGame_Character::UpdatePlayerRotationToMouse()
@@ -69,7 +63,7 @@ void AGame_Character::UpdatePlayerRotationToMouse()
 
 	FVector StartLocation = UKismetMathLibrary::MakeVector(ActorLocation.X,ActorLocation.Y,ActorLocation.Z=0);
 
-	UE_LOG(LogTemp, Log, TEXT("Player Location: %s"), *StartLocation.ToString());
+	//UE_LOG(LogTemp, Log, TEXT("Player Location: %s"), *StartLocation.ToString());
     
 	FHitResult HitResult;
 	bool bIsHit = PC->GetHitResultUnderCursorByChannel(UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_Visibility),true,HitResult);
@@ -126,5 +120,20 @@ void AGame_Character::BaseSKill()
 		GetWorld()->SpawnActor<AActor>(BulletClass,SpawnPoint,Rotator);
 		
 	}
+}
+
+void AGame_Character::Timekeeping()
+{
+	
+	Second++;
+	if(Second>=60)
+	{
+		Minute++;
+		Second=0;
+	}
+    
+	UE_LOG(LogTemp,Log,TEXT("秒: %d,分: %d"),Second,Minute);
+    
+	
 }
 

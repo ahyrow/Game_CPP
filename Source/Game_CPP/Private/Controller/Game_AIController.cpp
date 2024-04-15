@@ -7,6 +7,7 @@
 AGame_AIController::AGame_AIController()
 {
 	AcceptanceRadius=30.f;
+	
 }
 
 void AGame_AIController::Tick(float DeltaSeconds)

@@ -60,7 +60,16 @@ public:
 	
 	float SpawnTime = 1 ;
 	
-	
+	//计时
+	//分
+	int32 Minute;
+	//秒
+	int32 Second;
+
+	//时间计算
+	void Timekeeping();
+
+	FTimerHandle GameTimeTimerHanld;
 };
 
 

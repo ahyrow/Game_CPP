@@ -17,7 +17,7 @@ class GAME_CPP_API AGame_Bullet : public AActor
 public:	
 	
 	AGame_Bullet();
-
+virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UStaticMeshComponent> Bullet;
@@ -28,7 +28,10 @@ public:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UProjectileMovementComponent> PMC;
 
+	UFUNCTION()
+	void OnBeginOverlap(UPrimitiveComponent* OnComponentBeginOverlap,
+		AActor* OtherActor, UPrimitiveComponent* OtherComp,
+		int32 OtherBodyIndex, bool bFromSweep,const FHitResult& SweepResult);
 
-
-	
+	float ToEnemyBaseDamage = 10.f;
 };

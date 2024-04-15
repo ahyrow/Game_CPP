@@ -2,10 +2,11 @@
 
 
 #include "Actors/Game_EnemySpawnPoint.h"
-
 #include "Character/Game_Enemy.h"
+#include "Controller/Game_AIController.h"
 #include "Kismet/KismetMathLibrary.h"
 
+class AGame_AIController;
 // Sets default values
 AGame_EnemySpawnPoint::AGame_EnemySpawnPoint()
 {
@@ -19,9 +20,11 @@ void AGame_EnemySpawnPoint::BeginPlay()
 {
 	Super::BeginPlay();
 
-	/*FTimerHandle TimerHandle;
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle,this,&AGame_EnemySpawnPoint::SpawnEnemy,1,true);*/
-}
+	FTimerHandle TimerHandle;
+	GetWorld()->GetTimerManager().SetTimer(TimerHandle,this,&AGame_EnemySpawnPoint::SpawnEnemy,1,true);
+
+	
+}  
 
 // Called every frame
 void AGame_EnemySpawnPoint::Tick(float DeltaTime)
@@ -33,42 +36,33 @@ void AGame_EnemySpawnPoint::Tick(float DeltaTime)
 void AGame_EnemySpawnPoint::SpawnEnemy()
 {
 	int32 RandomInt = UKismetMathLibrary::RandomIntegerInRange(1,4);
-	float Point= UKismetMathLibrary::RandomIntegerInRange(-2400,2400);	
+	float Point= UKismetMathLibrary::RandomIntegerInRange(-2400,2400);
+	
 	switch (RandomInt)
 	{
 	case 1 :
 		{
 			
-			SpawnPoint = UKismetMathLibrary::MakeVector(Point,2400,100);
-			if (UWorld* World = GetWorld())
-			{
-				AGame_Enemy* Enemy = World->SpawnActor<AGame_Enemy>(AGame_Enemy::StaticClass(), SpawnPoint, FRotator::ZeroRotator);
-		        
-			};
+			FVector SpawnPoint1 = UKismetMathLibrary::MakeVector(Point,2400,100);
+			SpawnAIPC(SpawnPoint1);
+			
+		
 			break;
 		}
 	case 2:
 		{
-			SpawnPoint = UKismetMathLibrary::MakeVector(2400,Point,100);
-			if (UWorld* World = GetWorld())
-			{
-					AGame_Enemy* Enemy= World->SpawnActor<AGame_Enemy>(AGame_Enemy::StaticClass(), SpawnPoint, FRotator::ZeroRotator);
+			FVector SpawnPoint2 = UKismetMathLibrary::MakeVector(2400,Point,100);
 		
-			};
 			
-			
+			SpawnAIPC(SpawnPoint2);
 			break;
 		}
 	
 	case 3:
 		{
 			
-			SpawnPoint = UKismetMathLibrary::MakeVector(Point,-2400,100);
-			if (UWorld* World = GetWorld())
-			{
-				
-				AGame_Enemy* Enemy= World->SpawnActor<AGame_Enemy>(AGame_Enemy::StaticClass(), SpawnPoint, FRotator::ZeroRotator);
-			};
+			FVector SpawnPoint3 = UKismetMathLibrary::MakeVector(Point,-2400,100);
+			SpawnAIPC(SpawnPoint3);
 			break;
 		}
 		
@@ -77,12 +71,8 @@ void AGame_EnemySpawnPoint::SpawnEnemy()
 	case 4:
 		{
 			
-			SpawnPoint = UKismetMathLibrary::MakeVector(Point,-2400,100);
-			if (UWorld* World = GetWorld())
-			{
-			 AGame_Enemy* Enemy = World->SpawnActor<AGame_Enemy>(AGame_Enemy::StaticClass(), SpawnPoint, FRotator::ZeroRotator);
-		
-			};
+			FVector SpawnPoint4 = UKismetMathLibrary::MakeVector(Point,-2400,100);
+			SpawnAIPC(SpawnPoint4);
 			break;
 		}
 	
@@ -92,6 +82,21 @@ void AGame_EnemySpawnPoint::SpawnEnemy()
 	
 
 	
+}
+
+void AGame_EnemySpawnPoint::SpawnAIPC(FVector NewSpawnPoint)
+{
+	AGame_Enemy* Enemy = GetWorld()->SpawnActor<AGame_Enemy>(AGame_Enemy::StaticClass(),  NewSpawnPoint, FRotator::ZeroRotator);
+	if (Enemy)
+	{
+		AGame_AIController* AIController = GetWorld()->SpawnActor<AGame_AIController>(Enemy->AIControllerClass,  NewSpawnPoint, FRotator::ZeroRotator);
+		if (AIController)
+		{
+			AIController->Possess(Enemy);
+			
+		}
+	}
+
 }
 
 

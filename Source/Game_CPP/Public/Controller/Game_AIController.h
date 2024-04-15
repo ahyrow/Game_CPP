@@ -31,6 +31,6 @@ public:
 
 public:
 
-	bool bIsMove = true;
+	bool bIsMove=true;
 	float AcceptanceRadius;
 };

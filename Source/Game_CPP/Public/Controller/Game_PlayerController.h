@@ -39,7 +39,6 @@ public:
 public:
     
 	virtual void BeginPlay() override;
-	
 	virtual void SetupInputComponent() override;
 public:
     //移动回调
