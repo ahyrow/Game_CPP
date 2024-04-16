@@ -44,7 +44,9 @@ public:
 
 public:
   /*PlayerHealth*/
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float PlayerCurrentHealth;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float PlayerMaxHealth;
 
 	void PlayerDie();
@@ -53,25 +55,27 @@ public:
 	/*kill*/
 	/*UPROPERTY(EditAnywhere,Category="SkillAsset")
 	TSubclassOf<AGame_Bullet> BulletClass;*/
-
-  
-	
-	FTimerHandle TimerHandle_SpawnSkill;
-
 	void BaseSKill();
 	
 	float SpawnTime = 1 ;
 	
 	//计时
 	//分
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	int32 Minute;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	//秒
 	int32 Second;
 
 	//时间计算
 	void Timekeeping();
 
-	FTimerHandle GameTimeTimerHanld;
+	/*
+	 *  根据游戏时间生成AI
+	 */
+    
+	class AGame_EnemySpawnPoint* EnemySpawnPoint;
+	
 };
 
 

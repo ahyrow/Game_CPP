@@ -11,17 +11,14 @@
 // Sets default values
 AGame_Bullet::AGame_Bullet()
 {
-
-  
 	
-	Bullet= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Bullet"));
+	Bullet= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BulletComp"));
 	Sphere= CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	PMC= CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("PMC"));
 	
 	
-	
-	
 	Bullet->SetupAttachment(RootComponent);
+	RootComponent = Bullet;
 	Sphere->SetupAttachment(Bullet);
 	Bullet->SetRelativeScale3D(FVector(0.5,0.5,0.5));
 	Sphere->SetSphereRadius(100.f);

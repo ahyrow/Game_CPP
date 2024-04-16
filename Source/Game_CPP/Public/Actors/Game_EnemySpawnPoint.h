@@ -3,12 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Controller/Game_AIController.h"
 #include "GameFramework/Actor.h"
+#include "Character/Game_Enemy.h"
 #include "Game_EnemySpawnPoint.generated.h"
 
 class AGame_AIController;
 class AGame_Enemy;
+
+enum E_EenmyType;
 
 UCLASS()
 class GAME_CPP_API AGame_EnemySpawnPoint : public AActor
@@ -38,5 +40,9 @@ public:
 	void SpawnEnemy();
 	void SpawnAIPC(FVector NewSpawnPoint);
 
+	//生成速率
+	float SpawnSpeed = 1;
+	//生成类型
+  	E_EnemyType NewType = E_EnemyType::SmallEnemy;
 	
 };

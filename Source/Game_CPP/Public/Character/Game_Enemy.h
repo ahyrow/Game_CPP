@@ -12,27 +12,35 @@ class USphereComponent;
 class AGame_AIController;
 
 //敌人类型
-enum class E_EnemyType:int8
+UENUM(BlueprintType)
+enum class E_EnemyType:uint8
 {
-    BigEnemy,
-	MiddleEnemy,
-	SmallEnemy
-	
+    BigEnemy UMETA(DisplayName = "BigEnemy"),
+	MiddleEnemy UMETA(DisplayName = "MiddleEnemy Enemy"),
+	SmallEnemy UMETA(DisplayName = "SmallEnemy Enemy")
 };
 
 //敌人属性结构
+USTRUCT(BlueprintType)
 struct FEnemyInfo
 {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float CurrentHealth;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float MaxHealth;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float Damage;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
     float EnemyMoveSpeed;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
     float SpawnFrequency;
 	//骨骼 动画等
 };
 
 
-UCLASS()
+UCLASS(Blueprintable)
 class GAME_CPP_API AGame_Enemy : public ACharacter
 {
 	GENERATED_BODY()
@@ -40,6 +48,7 @@ class GAME_CPP_API AGame_Enemy : public ACharacter
 public:
 	
 	AGame_Enemy();
+	
 
 protected:
 	
@@ -69,22 +78,40 @@ public:
     TSubclassOf<AGame_AIController> AIControllerClass;	
 	
 	UPROPERTY(BlueprintReadWrite)
-	float EnemyMoveSpeed = 150;
-
-	//默认伤害
-	float DamageToPlayer=5.f;
-
+	float EnemyMoveSpeed;
 
 	
-	//敌人类型
-	E_EnemyType EnemyType=E_EnemyType::SmallEnemy;
-	//信息
-	FEnemyInfo EnemyInfo;
-    //设置敌人信息
-	void SetEnemyInfo (E_EnemyType EnemyType);
-    //设置敌人类型
+	//当前类型
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy")
+	E_EnemyType EnemyType =E_EnemyType::SmallEnemy;*/
+
+	//新的AI类型
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy")
+	E_EnemyType NewEnemyType  ;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Enemy")
+	FEnemyInfo EnemyInfo ;
+	
+    //获取AI信息
+	UFUNCTION(BlueprintCallable,Category = "Enemy")
+	FEnemyInfo GetEnemyInfo(E_EnemyType _EnemyType);
+
+	//设置AI类型
 	void SetEnemyType(int32 GameTime);
 
 	//生命值更新
 	void UpDateEnemyHealth(float Damage);
+
+	//设置类型
+	void SetEnemyType(E_EnemyType _NewEnemyType);
+
+   /*
+    *  属性 
+    */
+	//
+protected:
+	float CurrentHealth;
+	float MaxHealth;
+	float DamageToPlayer;
+	float BaseMoveSpeed;
+	float CurrentSpawnFrequency;
 };

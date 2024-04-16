@@ -46,17 +46,23 @@ AGame_Enemy::AGame_Enemy()
 	AIControllerClass = AGame_AIController::StaticClass();
 
 	Sphere->SetupAttachment(EnemyStaticMesh);
-	GetCharacterMovement()->MaxWalkSpeed=EnemyMoveSpeed;
+	/*
+	 * 
+    */
 	
 }
+
+
 
 // Called when the game starts or when spawned
 void AGame_Enemy::BeginPlay()
 {
 	 Super::BeginPlay();
-	 SetEnemyInfo(E_EnemyType::SmallEnemy);
 	
      Sphere->OnComponentBeginOverlap.AddDynamic(this,&AGame_Enemy::OnBeginOverlap);
+
+	
+	
 }
 
 void AGame_Enemy::Tick(float DeltaSeconds)
@@ -92,13 +98,13 @@ void AGame_Enemy::OnBeginOverlap(UPrimitiveComponent* OnComponentBeginOverlap, A
 	
 }
 
- void AGame_Enemy::SetEnemyInfo (E_EnemyType _EnemyType)
+FEnemyInfo AGame_Enemy::GetEnemyInfo (E_EnemyType _EnemyType)
 {
 	
 	switch (_EnemyType)
 	{
 	case  E_EnemyType::SmallEnemy:
-		EnemyInfo = FEnemyInfo{20,20,5,13,1};
+		EnemyInfo = FEnemyInfo{20,20,5,130,1};
 
 		break;
 	
@@ -112,7 +118,7 @@ void AGame_Enemy::OnBeginOverlap(UPrimitiveComponent* OnComponentBeginOverlap, A
 		
 		break;
 	}
-	
+	return EnemyInfo;
 }
 
 void AGame_Enemy::SetEnemyType(int32 GameTime)
@@ -148,6 +154,39 @@ void AGame_Enemy::UpDateEnemyHealth(float Damage)
 		
 	}
   
+}
+
+void AGame_Enemy::SetEnemyType(E_EnemyType _NewEnemyType)
+{
+	
+	if(_NewEnemyType==E_EnemyType::SmallEnemy)
+	{
+		GetCharacterMovement()->MaxWalkSpeed= GetEnemyInfo(E_EnemyType::SmallEnemy).EnemyMoveSpeed;
+		CurrentHealth = GetEnemyInfo(E_EnemyType::SmallEnemy).CurrentHealth;
+		MaxHealth = GetEnemyInfo(E_EnemyType::SmallEnemy).MaxHealth;
+		DamageToPlayer = GetEnemyInfo(E_EnemyType::SmallEnemy).Damage;
+		CurrentSpawnFrequency = GetEnemyInfo(E_EnemyType::SmallEnemy).SpawnFrequency;
+	}
+	else if (_NewEnemyType==E_EnemyType::MiddleEnemy)
+	{
+		GetCharacterMovement()->MaxWalkSpeed= GetEnemyInfo(E_EnemyType::MiddleEnemy).EnemyMoveSpeed;
+		CurrentHealth = GetEnemyInfo(E_EnemyType::MiddleEnemy).CurrentHealth;
+		MaxHealth = GetEnemyInfo(E_EnemyType::MiddleEnemy).MaxHealth;
+		DamageToPlayer = GetEnemyInfo(E_EnemyType::MiddleEnemy).Damage;
+		CurrentSpawnFrequency = GetEnemyInfo(E_EnemyType::MiddleEnemy).SpawnFrequency;
+	}
+	else if (_NewEnemyType==E_EnemyType::BigEnemy)
+	{
+		
+		GetCharacterMovement()->MaxWalkSpeed= GetEnemyInfo(E_EnemyType::BigEnemy).EnemyMoveSpeed;
+		CurrentHealth = GetEnemyInfo(E_EnemyType::BigEnemy).CurrentHealth;
+		MaxHealth = GetEnemyInfo(E_EnemyType::BigEnemy).MaxHealth;
+		DamageToPlayer = GetEnemyInfo(E_EnemyType::BigEnemy).Damage;
+		CurrentSpawnFrequency = GetEnemyInfo(E_EnemyType::BigEnemy).SpawnFrequency;
+		
+	}
+
+	UE_LOG(LogTemp,Log,TEXT("行走速度 %f"),GetCharacterMovement()->MaxWalkSpeed);
 }
 
 

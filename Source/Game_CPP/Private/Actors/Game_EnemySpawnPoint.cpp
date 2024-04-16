@@ -2,7 +2,6 @@
 
 
 #include "Actors/Game_EnemySpawnPoint.h"
-#include "Character/Game_Enemy.h"
 #include "Controller/Game_AIController.h"
 #include "Kismet/KismetMathLibrary.h"
 
@@ -21,7 +20,7 @@ void AGame_EnemySpawnPoint::BeginPlay()
 	Super::BeginPlay();
 
 	FTimerHandle TimerHandle;
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle,this,&AGame_EnemySpawnPoint::SpawnEnemy,1,true);
+	GetWorld()->GetTimerManager().SetTimer(TimerHandle,this,&AGame_EnemySpawnPoint::SpawnEnemy,SpawnSpeed,true);
 
 	
 }  
@@ -82,19 +81,20 @@ void AGame_EnemySpawnPoint::SpawnEnemy()
 	
 
 	
-}
+} 
 
 void AGame_EnemySpawnPoint::SpawnAIPC(FVector NewSpawnPoint)
 {
+	
 	AGame_Enemy* Enemy = GetWorld()->SpawnActor<AGame_Enemy>(AGame_Enemy::StaticClass(),  NewSpawnPoint, FRotator::ZeroRotator);
-	if (Enemy)
+	AGame_AIController* AIController = GetWorld()->SpawnActor<AGame_AIController>(Enemy->AIControllerClass,  NewSpawnPoint, FRotator::ZeroRotator);
+	if (Enemy&&AIController)
 	{
-		AGame_AIController* AIController = GetWorld()->SpawnActor<AGame_AIController>(Enemy->AIControllerClass,  NewSpawnPoint, FRotator::ZeroRotator);
-		if (AIController)
-		{
-			AIController->Possess(Enemy);
-			
-		}
+		E_EnemyType _NewType  =NewType;
+		Enemy->SetEnemyType(_NewType);
+		SpawnSpeed=Enemy->GetEnemyInfo(_NewType).SpawnFrequency;
+		AIController->Possess(Enemy);
+		UE_LOG(LogTemp,Log,TEXT("EnemyHealth : %f  EnemySpawn Speed :%f"), Enemy->EnemyInfo.CurrentHealth,Enemy->EnemyInfo.SpawnFrequency);
 	}
 
 }

@@ -5,8 +5,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
-#include "Input/Game_IA_PlayerMove.h"
-#include "Input/Game_IMC.h"
+
 
 
 AGame_PlayerController::AGame_PlayerController()

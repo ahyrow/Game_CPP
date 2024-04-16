@@ -5,6 +5,7 @@
 #include "Actors/Game_Bullet.h"
 #include "Actors/Game_EnemySpawnPoint.h"
 #include "Camera/CameraComponent.h"
+#include "Character/Game_Enemy.h"
 #include "Controller/Game_PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -44,9 +45,12 @@ void AGame_Character::BeginPlay()
 {
 	Super::BeginPlay();
 
+	FTimerHandle TimerHandle_SpawnSkill;
+	FTimerHandle GameTimeTimerHanld;
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle_SpawnSkill, this, &AGame_Character::BaseSKill,  SpawnTime, true);
 	GetWorld()->GetTimerManager().SetTimer(GameTimeTimerHanld, this, &AGame_Character::Timekeeping,  1, true);
-	AGame_EnemySpawnPoint* EnemySpawnPoint =GetWorld()->SpawnActor<AGame_EnemySpawnPoint>(AGame_EnemySpawnPoint::StaticClass(), GetActorLocation(), FRotator::ZeroRotator);
+	EnemySpawnPoint =GetWorld()->SpawnActor<AGame_EnemySpawnPoint>(AGame_EnemySpawnPoint::StaticClass(), GetActorLocation(), FRotator::ZeroRotator);
+
 	
 }
 
@@ -127,8 +131,18 @@ void AGame_Character::Timekeeping()
 		Minute++;
 		Second=0;
 	}
-    
-	UE_LOG(LogTemp,Log,TEXT("秒: %d,分: %d"),Second,Minute);
+    if(Minute==1&&Second<60)
+    {
+    	EnemySpawnPoint->NewType=E_EnemyType::SmallEnemy;
+    }
+	else if(Minute==2&&Second<60)
+	{
+		EnemySpawnPoint->NewType=E_EnemyType::MiddleEnemy;
+	}
+	else if(Minute==3&&Second<60)
+	{
+		EnemySpawnPoint->NewType=E_EnemyType::BigEnemy;
+	}
     
 	
 }
