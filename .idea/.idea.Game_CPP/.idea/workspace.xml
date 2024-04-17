@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87faca31-ec27-44da-8fa7-dd36436ec4f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game_CPP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game_CPP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Private/Character/Game_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Private/Character/Game_Character.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Game_CPP/Public/Character/Game_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Game_CPP/Public/Character/Game_Character.h" afterDir="false" />
-    </list>
+    <list default="true" id="87faca31-ec27-44da-8fa7-dd36436ec4f6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -492,7 +488,7 @@
       <workItem from="1713144175421" duration="27235000" />
       <workItem from="1713178147210" duration="5607000" />
       <workItem from="1713230199974" duration="21734000" />
-      <workItem from="1713317269547" duration="10909000" />
+      <workItem from="1713317269547" duration="11658000" />
     </task>
     <servers />
   </component>
