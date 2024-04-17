@@ -30,7 +30,12 @@ public:
 	 * 技能管理
 	 */
 
-	void ActivateAbility(int32 AbilityID);
-	void AddAbility(const FAbilityData& NewAbility);
+    //技能是否解锁
+	bool IsAbilityUnlocked(const FAbilityData& Ability) const;
+
+	//技能激活
+	void ActivateAbility(const FAbilityData& Ability);
+
+	
 	
 };

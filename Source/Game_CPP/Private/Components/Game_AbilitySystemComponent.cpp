@@ -29,6 +29,16 @@ void UGame_AbilitySystemComponent::TickComponent(float DeltaTime, ELevelTick Tic
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+}
+
+bool UGame_AbilitySystemComponent::IsAbilityUnlocked(const FAbilityData& Ability) const
+{
+   
+	 return Ability.bUnlocked;
+}
+
+void UGame_AbilitySystemComponent::ActivateAbility(const FAbilityData& Ability)
+{
+	UE_LOG(LogTemp, Log, TEXT("Activating Ability: %s"), *Ability.AbilityName);
 }
 
