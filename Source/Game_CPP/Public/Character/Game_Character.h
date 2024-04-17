@@ -7,6 +7,7 @@
 #include "Game_Character.generated.h"
 
 
+class UGame_AbilitySystemComponent;
 class AGame_Bullet;
 class UCameraComponent;
 class USpringArmComponent;
@@ -73,9 +74,16 @@ public:
 	/*
 	 *  根据游戏时间生成AI
 	 */
-    
-	class AGame_EnemySpawnPoint* EnemySpawnPoint;
+
 	
+	class AGame_EnemySpawnPoint* EnemySpawnPoint;
+
+
+	/*
+	 * 技能系统组件
+	 */
+
+	TObjectPtr<UGame_AbilitySystemComponent> AbilitySystemComponent;
 };
 
 

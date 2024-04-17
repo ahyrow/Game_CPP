@@ -6,6 +6,7 @@
 #include "Actors/Game_EnemySpawnPoint.h"
 #include "Camera/CameraComponent.h"
 #include "Character/Game_Enemy.h"
+#include "Components/Game_AbilitySystemComponent.h"
 #include "Controller/Game_PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -32,6 +33,9 @@ AGame_Character::AGame_Character()
 
 	PlayerCurrentHealth=10.f;
 	PlayerMaxHealth=100.f;
+
+	//创建技能系统组件
+	AbilitySystemComponent=CreateDefaultSubobject<UGame_AbilitySystemComponent>(TEXT("PlayerAbilityComp"));
 }
 
 void AGame_Character::Tick(float DeltaSeconds)
