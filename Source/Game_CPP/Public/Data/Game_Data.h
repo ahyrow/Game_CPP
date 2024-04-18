@@ -20,10 +20,7 @@ struct FAbilityData
 	//技能描述
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Ability")
 	FString Description;
-    //冷却时间
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Ability")
-	float Cooldown;
-    //基础伤害
+	//基础伤害
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Ability")
 	float BaseDamage;
 	//是否解锁

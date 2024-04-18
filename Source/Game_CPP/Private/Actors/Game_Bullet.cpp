@@ -60,11 +60,16 @@ void AGame_Bullet::OnBeginOverlap(UPrimitiveComponent* OnComponentBeginOverlap, 
     {
     	   Destroy();
            Enemy->UpDateEnemyHealth(ToEnemyBaseDamage);
-    	
+    	   
     }
 	
    
 	
+}
+
+void AGame_Bullet::SetDamage(int32 Damage)
+{
+	ToEnemyBaseDamage = Damage;
 }
 
 

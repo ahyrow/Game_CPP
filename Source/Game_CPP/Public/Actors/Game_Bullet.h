@@ -41,4 +41,6 @@ public:
 
 	//对敌人造成伤害
 	float ToEnemyBaseDamage = 10.f;
+
+	void SetDamage(int32 Damage);
 };

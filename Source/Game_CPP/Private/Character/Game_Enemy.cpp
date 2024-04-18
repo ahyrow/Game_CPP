@@ -4,6 +4,7 @@
 #include "Character/Game_Enemy.h"
 
 
+#include "Actors/Game_Props.h"
 #include "Character/Game_Character.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
@@ -137,23 +138,38 @@ void AGame_Enemy::SetEnemyType(int32 GameTime)
 	
 }
 
-void AGame_Enemy::UpDateEnemyHealth(float Damage)
+void AGame_Enemy::UpDateEnemyHealth( float Damage)
 {
 	if ( EnemyInfo.CurrentHealth>0)
 	{
 		EnemyInfo.CurrentHealth = EnemyInfo.CurrentHealth-Damage;
-		UE_LOG(LogTemp,Log,TEXT("EnemyCurrentHealth: %f"),EnemyInfo.CurrentHealth)
+		
 	}
 	else
 	{
-
 		//死亡后
+        FVector DieEnemyLocation=GetActorLocation();
 		Destroy();
-		UE_LOG(LogTemp,Log,TEXT("Enemy已经死亡"))
+		//UE_LOG(LogTemp,Log,TEXT("Enemy已经死亡"))
+		int RandomNumber = FMath::RandRange(0, 100);  // 生成0到100之间的随机数
+		if (RandomNumber >=30)  // 有30%的概率
+			return;
+		
+		if( FMath::RandBool())
+		{
+			AGame_Props* Props=GetWorld()->SpawnActor<AGame_Props>(AGame_Props::StaticClass(),DieEnemyLocation,GetActorRotation());
+			Props->SetSpawnPropType(E_PropType::HealthPotion);
+					
+		}
+		else
+		{
+			AGame_Props* Props=GetWorld()->SpawnActor<AGame_Props>(AGame_Props::StaticClass(),DieEnemyLocation,GetActorRotation());
+			Props->SetSpawnPropType(E_PropType::SpeedPotion);
+		}
+		 
 		
 		
-	}
-  
+	}  
 }
 
 void AGame_Enemy::SetEnemyType(E_EnemyType _NewEnemyType)
@@ -186,7 +202,7 @@ void AGame_Enemy::SetEnemyType(E_EnemyType _NewEnemyType)
 		
 	}
 
-	UE_LOG(LogTemp,Log,TEXT("行走速度 %f"),GetCharacterMovement()->MaxWalkSpeed);
+	
 }
 
 

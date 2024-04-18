@@ -51,10 +51,20 @@ void AGame_Character::BeginPlay()
 
 	FTimerHandle TimerHandle_SpawnSkill;
 	FTimerHandle GameTimeTimerHanld;
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle_SpawnSkill, this, &AGame_Character::BaseSKill,  SpawnTime, true);
-	GetWorld()->GetTimerManager().SetTimer(GameTimeTimerHanld, this, &AGame_Character::Timekeeping,  1, true);
+	
 	EnemySpawnPoint =GetWorld()->SpawnActor<AGame_EnemySpawnPoint>(AGame_EnemySpawnPoint::StaticClass(), GetActorLocation(), FRotator::ZeroRotator);
+	GetWorld()->GetTimerManager().SetTimer(GameTimeTimerHanld, this, &AGame_Character::Timekeeping,  1, true);
 
+	
+	for(auto Ability : AbilitySystemComponent->AbilityDatas)
+	{
+        if(Ability.bUnlocked)
+        {
+        	
+        	GetWorld()->GetTimerManager().SetTimer(TimerHandle_SpawnSkill, this, &AGame_Character::BaseSKill,  SpawnTime, true);
+        }
+		
+	}
 	
 }
 
@@ -101,7 +111,7 @@ void AGame_Character::HealthLoss(float Damage)
 	if(PlayerCurrentHealth>0)
 	{
 		PlayerCurrentHealth=PlayerCurrentHealth-Damage;
-		UE_LOG(LogTemp,Log,TEXT("PlayerCurrentHealth: %f"),PlayerCurrentHealth);
+		
 	}
    
 	PlayerDie();
@@ -112,7 +122,7 @@ void AGame_Character::HealthLoss(float Damage)
 void AGame_Character::PlayerDie()
 {
 
-	UE_LOG(LogTemp,Log,TEXT("PlayerCurrentHealth: %f,玩家已经死亡"),PlayerCurrentHealth)
+	
 	
 }
 
@@ -123,7 +133,13 @@ void AGame_Character::BaseSKill()
         FRotator Rotator = GetActorRotation();
 
 	    AGame_Bullet* Game_Bullet = GetWorld()->SpawnActor<AGame_Bullet>(AGame_Bullet::StaticClass(),SpawnPoint,Rotator);
-	
+     if(Game_Bullet )
+     {
+
+     	Game_Bullet->SetDamage(AbilitySystemComponent->AbilityDatas[0].BaseDamage);
+     }
+	   
+	         
 }
 
 void AGame_Character::Timekeeping()

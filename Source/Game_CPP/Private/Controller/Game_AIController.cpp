@@ -51,7 +51,7 @@ void AGame_AIController::WaitTime(float Seconds)
     	FTimerHandle TimerHandle;
     	GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &AGame_AIController::OnWaitFinished,Seconds , false);
 
-    	UE_LOG(LogTemp,Log,TEXT("%f"),Seconds);
+    	
     };
 
 	

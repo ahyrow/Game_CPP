@@ -94,7 +94,7 @@ void AGame_EnemySpawnPoint::SpawnAIPC(FVector NewSpawnPoint)
 		Enemy->SetEnemyType(_NewType);
 		SpawnSpeed=Enemy->GetEnemyInfo(_NewType).SpawnFrequency;
 		AIController->Possess(Enemy);
-		UE_LOG(LogTemp,Log,TEXT("EnemyHealth : %f  EnemySpawn Speed :%f"), Enemy->EnemyInfo.CurrentHealth,Enemy->EnemyInfo.SpawnFrequency);
+		
 	}
 
 }

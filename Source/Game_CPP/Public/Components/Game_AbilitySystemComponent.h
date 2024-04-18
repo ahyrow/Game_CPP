@@ -21,20 +21,16 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 public:
 	/*
 	 * 技能管理
 	 */
-
-    //技能是否解锁
-	bool IsAbilityUnlocked(const FAbilityData& Ability) const;
-
-	//技能激活
-	void ActivateAbility(const FAbilityData& Ability);
+    
+	UPROPERTY(EditAnywhere)
+    TArray<FAbilityData> AbilityDatas;
+	
+	
 
 	
 	

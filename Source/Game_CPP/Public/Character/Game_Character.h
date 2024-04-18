@@ -82,7 +82,8 @@ public:
 	/*
 	 * 技能系统组件
 	 */
-
+	
+	UPROPERTY(EditAnywhere)
 	TObjectPtr<UGame_AbilitySystemComponent> AbilitySystemComponent;
 };
 
