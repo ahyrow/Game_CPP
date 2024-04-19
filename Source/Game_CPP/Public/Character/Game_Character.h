@@ -44,21 +44,28 @@ public:
 
 
 public:
-  /*PlayerHealth*/
+   /*PlayerHealth*/
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float PlayerCurrentHealth;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float PlayerMaxHealth;
 
+   //角色死亡 
 	void PlayerDie();
+	/*
+	 * 玩家经验值
+	 */
+	//当前经验
+    float CurrentExp = 0;
+	//最大经验值
+	float  MaxExp = 100;
+	//玩家等级
+	int32 Level = 1;
+	//怪物经验
+	int32 EnemiesExp;
 
-
-	/*kill*/
-	/*UPROPERTY(EditAnywhere,Category="SkillAsset")
-	TSubclassOf<AGame_Bullet> BulletClass;*/
-	void BaseSKill();
+	void  PlayerEXP();
 	
-	float SpawnTime = 1 ;
 	
 	//计时
 	//分
@@ -74,7 +81,6 @@ public:
 	/*
 	 *  根据游戏时间生成AI
 	 */
-
 	
 	class AGame_EnemySpawnPoint* EnemySpawnPoint;
 
@@ -82,6 +88,16 @@ public:
 	/*
 	 * 技能系统组件
 	 */
+
+	
+	/*基础技能*/
+	/*UPROPERTY(EditAnywhere,Category="SkillAsset")
+	TSubclassOf<AGame_Bullet> BulletClass;*/
+	int32 SkillPoint;
+	void BaseSKill();
+	
+	float SpawnTime = 1 ;
+	
 	
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UGame_AbilitySystemComponent> AbilitySystemComponent;

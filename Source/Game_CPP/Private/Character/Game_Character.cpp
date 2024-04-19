@@ -142,6 +142,17 @@ void AGame_Character::BaseSKill()
 	         
 }
 
+void AGame_Character:: PlayerEXP()
+{
+	CurrentExp = CurrentExp+EnemiesExp;
+	if(CurrentExp>MaxExp)
+	{
+		CurrentExp = 0;
+		Level++;
+		SkillPoint++;
+	}
+}
+
 void AGame_Character::Timekeeping()
 {
 	

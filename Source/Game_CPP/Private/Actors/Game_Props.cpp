@@ -18,7 +18,7 @@ AGame_Props::AGame_Props()
 	SphereComponent->SetupAttachment(Prop);
 	RootComponent = Prop;
 
-	//根据类型设置模型
+
 
  	/*
 	 * 碰撞
