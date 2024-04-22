@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Character/Game_Character.h"
-
 #include "Actors/Game_Bullet.h"
 #include "Actors/Game_EnemySpawnPoint.h"
 #include "Camera/CameraComponent.h"
