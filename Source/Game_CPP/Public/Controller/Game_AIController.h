@@ -16,8 +16,6 @@ class GAME_CPP_API AGame_AIController : public AAIController
 	
 
 public:
-
-
 	AGame_AIController();
 	virtual void Tick(float DeltaSeconds) override;
     virtual void BeginPlay() override;

@@ -98,10 +98,6 @@ void AGame_Character::UpdatePlayerRotationToMouse()
     	
     	WirteBoxPlayer->SetWorldLocation(EndLocation);
     }
-
-
-	
-	
 }
 
 void AGame_Character::HealthLoss(float Damage)

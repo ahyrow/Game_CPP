@@ -11,6 +11,7 @@
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class GAME_CPP_API UGame_AbilitySystemComponent : public UActorComponent
 {
+	
 	GENERATED_BODY()
 
 public:	

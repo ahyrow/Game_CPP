@@ -41,18 +41,13 @@ void AGame_EnemySpawnPoint::SpawnEnemy()
 	{
 	case 1 :
 		{
-			
 			FVector SpawnPoint1 = UKismetMathLibrary::MakeVector(Point,2400,100);
 			SpawnAIPC(SpawnPoint1);
-			
-		
 			break;
 		}
 	case 2:
 		{
 			FVector SpawnPoint2 = UKismetMathLibrary::MakeVector(2400,Point,100);
-		
-			
 			SpawnAIPC(SpawnPoint2);
 			break;
 		}
@@ -69,7 +64,6 @@ void AGame_EnemySpawnPoint::SpawnEnemy()
 		
 	case 4:
 		{
-			
 			FVector SpawnPoint4 = UKismetMathLibrary::MakeVector(Point,-2400,100);
 			SpawnAIPC(SpawnPoint4);
 			break;

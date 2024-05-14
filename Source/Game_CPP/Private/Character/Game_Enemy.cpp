@@ -132,9 +132,6 @@ void AGame_Enemy::SetEnemyType(int32 GameTime)
 		
 	}
 	*/
-	 
-    
-
 	
 }
 
